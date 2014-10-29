@@ -1,0 +1,23 @@
+[package]
+
+name = "redox"
+version = "0.0.1"
+authors = []
+
+[[bin]]
+
+name = "redox"
+path = "src/main.rs"
+
+[dependencies.iron]
+
+git = "https://github.com/iron/iron.git"
+
+[dependencies.hyper]
+
+git = "https://github.com/hyperium/hyper.git"
+
+[dependencies.postgres]
+
+git = "https://github.com/sfackler/rust-postgres.git"
+
