@@ -2,7 +2,9 @@
 
 name = "redox"
 version = "0.0.1"
-authors = []
+authors = [
+    "bvssvni <bvssvni@gmail.com>"
+]
 
 [[bin]]
 
