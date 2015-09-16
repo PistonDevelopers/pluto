@@ -2,16 +2,23 @@
 
 extern crate iron;
 
-use iron::{Request, Response, IronResult, Iron, Error};
-use std::io::net::ip::Ipv4Addr;
-use std::path::posix::Path;
+use std::fs::File;
+use std::io::Read;
+
+use iron::prelude::*;
+use iron::status;
+use iron::headers::*;
 
 fn main() {
-    fn hello(_: &mut Request) -> IronResult<Response> {
-        Response::from_file(&Path::new("./assets/index.html"))
-            .map_err(|e| e.erase())
+    fn hello_world(_: &mut Request) -> IronResult<Response> {
+        let mut file = File::open("assets/index.html").unwrap();
+        let mut index = String::new();
+        file.read_to_string(&mut index).unwrap();
+        let mut res = Response::with((status::Ok, index));
+        res.headers.set(ContentType::html());
+        Ok(res)
     }
 
-    Iron::new(hello).listen(Ipv4Addr(127, 0, 0, 1), 3000);
+    Iron::new(hello_world).http("localhost:3000").unwrap();
+    println!("On 3000");
 }
-
