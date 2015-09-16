@@ -9,15 +9,8 @@ authors = []
 name = "redox"
 path = "src/main.rs"
 
-[dependencies.iron]
-
-git = "https://github.com/iron/iron.git"
-
-[dependencies.hyper]
-
-git = "https://github.com/hyperium/hyper.git"
-
-[dependencies.postgres]
-
-git = "https://github.com/sfackler/rust-postgres.git"
+[dependencies]
+iron = "0.2.2"
+hyper = "*" # anything that goes with Iron
+postgres = "0.9.6"
 
