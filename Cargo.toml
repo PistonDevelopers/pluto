@@ -13,4 +13,5 @@ path = "src/main.rs"
 iron = "0.2.2"
 hyper = "*" # anything that goes with Iron
 postgres = "0.9.6"
-
+staticfile = "*" # anything that goes with Iron
+mount = "*" # anything that goes with Iron
