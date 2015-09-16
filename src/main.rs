@@ -1,24 +1,22 @@
 //! Redox is a server for a game competition page.
 
 extern crate iron;
+extern crate staticfile;
+extern crate mount;
 
-use std::fs::File;
 use std::io::Read;
 
 use iron::prelude::*;
 use iron::status;
-use iron::headers::*;
+use staticfile::Static;
+use mount::Mount;
 
 fn main() {
-    fn hello_world(_: &mut Request) -> IronResult<Response> {
-        let mut file = File::open("assets/index.html").unwrap();
-        let mut index = String::new();
-        file.read_to_string(&mut index).unwrap();
-        let mut res = Response::with((status::Ok, index));
-        res.headers.set(ContentType::html());
-        Ok(res)
-    }
+    let mut mount = Mount::new();
 
-    Iron::new(hello_world).http("localhost:3000").unwrap();
-    println!("On 3000");
+    mount.mount("/", Static::new("assets/"));
+
+    let url = "localhost:3000";
+    Iron::new(mount).http(url).unwrap();
+    println!("Redox running on http://{}", url);
 }
