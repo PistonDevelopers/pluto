@@ -117,6 +117,19 @@ nav > ul > li > a {
     color: black;
 }
 
+.frame-orange {
+    background: url("./cnt_orange_top.png") no-repeat top left, url("./cnt_orange_bottom.png") no-repeat bottom right;
+}
+
+.frame-orange-content {
+    min-height: 16px;
+    background: url("./cnt_orange.png") repeat-y top right;
+    background-color: #ff9900;
+    box-shadow: -16px 16px 0 0 #804d00;
+    padding: 10px;
+    color: black;
+}
+
 footer {
     position: absolute;
     width: 100%;
