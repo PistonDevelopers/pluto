@@ -28,14 +28,14 @@ body {
     height: 100%;
     line-height: 1;
     color: black;
-    background-color: #364e59;
+    background: url("./background.png");
 }
 
 #container {
     min-height: 100%;
     position: relative;
     min-width: 1024px;
-    background: url("./back.png") repeat-y 70px;
+    background: url("./back.png") repeat-y 74px;
 }
 
 header {
@@ -75,7 +75,7 @@ nav > ul > li > a {
 
 .subheader {
     display: block;
-    background: url("./sub.png") repeat-y 70px;
+    background: url("./sub.png") repeat-y 74px;
     background-color: #2b3f48;
     height: 16px;
 }
