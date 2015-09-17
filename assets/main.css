@@ -17,6 +17,13 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 
+p { margin: 16px 0; }
+
+ul {
+    margin: 5px 0;
+    list-style-type: square;
+}
+
 html {
     height: 100%;
 }
@@ -83,13 +90,17 @@ nav > ul > li > a {
 .content {
     padding: 20px 20px 60px 20px;
     color: white;
-    font-size: 14;
+    font-size: 16px;
     font-family: 'Roboto', Verdana, serif;
 }
 
 .frame {
     padding: 0 0 16px 16px;
     margin: 0 0 16px 0;
+}
+
+.frame ul {
+    padding-left: 25px;
 }
 
 .frame-blue {
