@@ -23,15 +23,24 @@ body {
     background-color: #364e59;
 }
 
+.container {
+    min-width: 1024px;
+}
+
 header {
     background-color: #0e232e;
+    height: 96px;
 }
 
 header > .logo {
     display: inline-block;
+    padding: 0px 50px;
 }
 
 nav {
+    vertical-align: top;
+    float: right;
+    padding-right: 50px;
     display: inline-block
 }
 
@@ -42,8 +51,39 @@ nav > ul {
 
 nav > ul > li {
     display: inline;
+    line-height: 96px;
+    padding: 35px 50px;
+}
+
+nav > ul > li > a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-family: 'Roboto', Verdana, serif;
+}
+
+.subheader {
+    display: block;
+    background: url("./sub.png") repeat-y 70px;
+    background-color: #2b3f48;
+    height: 16px;
+}
+
+.content {
+    padding: 20px;
+    background: url("./back.png") repeat-y 70px;
+    color: white;
+    font-size: 14;
+    font-family: 'Roboto', Verdana, serif;
 }
 
 footer {
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    background: url("./foot.png") repeat-y 50px;
     background-color: #0e232e;
+    text-align: center;
+    font-size: 14;
+    font-family: 'Roboto', Verdana, serif;
 }
