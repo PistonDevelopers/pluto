@@ -77,6 +77,20 @@ nav > ul > li > a {
     font-family: 'Roboto', Verdana, serif;
 }
 
+.frame-blue {
+    padding: 0 0 16px 16px;
+    margin: 0px;
+    background: url("./cnt_blue_top.png") no-repeat top left, url("./cnt_blue_bottom.png") no-repeat bottom right;
+}
+
+.frame-blue-content {
+    min-height: 16px;
+    background: url("./cnt_blue.png") repeat-y top right;
+    background-color: #19aeff;
+    box-shadow: -16px 16px 0 0 #005c94;
+    padding: 10px;
+}
+
 footer {
     height: 50px;
     line-height: 50px;
