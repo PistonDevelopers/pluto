@@ -17,14 +17,25 @@ table, caption, tbody, tfoot, thead, tr, th, td {
     vertical-align: baseline;
 }
 
+html {
+    height: 100%;
+}
+
 body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 100%;
     line-height: 1;
     color: black;
     background-color: #364e59;
 }
 
-.container {
+#container {
+    min-height: 100%;
+    position: relative;
     min-width: 1024px;
+    background: url("./back.png") repeat-y 70px;
 }
 
 header {
@@ -70,16 +81,18 @@ nav > ul > li > a {
 }
 
 .content {
-    padding: 20px;
-    background: url("./back.png") repeat-y 70px;
+    padding: 20px 20px 60px 20px;
     color: white;
     font-size: 14;
     font-family: 'Roboto', Verdana, serif;
 }
 
-.frame-blue {
+.frame {
     padding: 0 0 16px 16px;
-    margin: 0px;
+    margin: 0 0 16px 0;
+}
+
+.frame-blue {
     background: url("./cnt_blue_top.png") no-repeat top left, url("./cnt_blue_bottom.png") no-repeat bottom right;
 }
 
@@ -91,7 +104,24 @@ nav > ul > li > a {
     padding: 10px;
 }
 
+.frame-green {
+    background: url("./cnt_green_top.png") no-repeat top left, url("./cnt_green_bottom.png") no-repeat bottom right;
+}
+
+.frame-green-content {
+    min-height: 16px;
+    background: url("./cnt_green.png") repeat-y top right;
+    background-color: #caff59;
+    box-shadow: -16px 16px 0 0 #009023;
+    padding: 10px;
+    color: black;
+}
+
 footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
     height: 50px;
     line-height: 50px;
     color: white;
