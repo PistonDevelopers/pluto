@@ -35,14 +35,14 @@ body {
     height: 100%;
     line-height: 1;
     color: black;
-    background: url("./background.png");
+    background: url("/img/background.png");
 }
 
 #container {
     min-height: 100%;
     position: relative;
     min-width: 1024px;
-    background: url("./back.png") repeat-y 74px;
+    background: url("/img/back.png") repeat-y 74px;
 }
 
 header {
@@ -82,7 +82,7 @@ nav > ul > li > a {
 
 .subheader {
     display: block;
-    background: url("./sub.png") repeat-y 74px;
+    background: url("/img/sub.png") repeat-y 74px;
     background-color: #2b3f48;
     height: 16px;
 }
@@ -104,37 +104,37 @@ nav > ul > li > a {
 }
 
 .frame-blue {
-    background: url("./cnt_blue_top.png") no-repeat top left, url("./cnt_blue_bottom.png") no-repeat bottom right;
+    background: url("/img/cnt_blue_top.png") no-repeat top left, url("/img/cnt_blue_bottom.png") no-repeat bottom right;
 }
 
 .frame-blue-content {
     min-height: 16px;
-    background: url("./cnt_blue.png") repeat-y top right;
+    background: url("/img/cnt_blue.png") repeat-y top right;
     background-color: #19aeff;
     box-shadow: -16px 16px 0 0 #005c94;
     padding: 10px;
 }
 
 .frame-green {
-    background: url("./cnt_green_top.png") no-repeat top left, url("./cnt_green_bottom.png") no-repeat bottom right;
+    background: url("/img/cnt_green_top.png") no-repeat top left, url("/img/cnt_green_bottom.png") no-repeat bottom right;
 }
 
 .frame-green-content {
     min-height: 16px;
-    background: url("./cnt_green.png") repeat-y top right;
-    background-color: #caff59;
+    background: url("/img/cnt_green.png") repeat-y top right;
+    background-color: #ccff42;
     box-shadow: -16px 16px 0 0 #009023;
     padding: 10px;
     color: black;
 }
 
 .frame-orange {
-    background: url("./cnt_orange_top.png") no-repeat top left, url("./cnt_orange_bottom.png") no-repeat bottom right;
+    background: url("/img/cnt_orange_top.png") no-repeat top left, url("/img/cnt_orange_bottom.png") no-repeat bottom right;
 }
 
 .frame-orange-content {
     min-height: 16px;
-    background: url("./cnt_orange.png") repeat-y top right;
+    background: url("/img/cnt_orange.png") repeat-y top right;
     background-color: #ff9900;
     box-shadow: -16px 16px 0 0 #804d00;
     padding: 10px;
@@ -149,7 +149,7 @@ footer {
     height: 50px;
     line-height: 50px;
     color: white;
-    background: url("./foot.png") repeat-y 50px;
+    background: url("/img/foot.png") repeat-y 50px;
     background-color: #0e232e;
     text-align: center;
     font-size: 14;
