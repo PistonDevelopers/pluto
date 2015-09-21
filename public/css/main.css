@@ -1,0 +1,157 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-weight: inherit;
+    font-style: inherit;
+    font-size: 100%;
+    font-family: inherit;
+    vertical-align: baseline;
+}
+
+p { margin: 16px 0; }
+
+ul {
+    margin: 5px 0;
+    list-style-type: square;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    display: block;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    line-height: 1;
+    color: black;
+    background: url("/img/background.png");
+}
+
+#container {
+    min-height: 100%;
+    position: relative;
+    min-width: 1024px;
+    background: url("/img/back.png") repeat-y 74px;
+}
+
+header {
+    background-color: #0e232e;
+    height: 96px;
+}
+
+header > .logo {
+    display: inline-block;
+    padding: 0px 50px;
+}
+
+nav {
+    vertical-align: top;
+    float: right;
+    padding-right: 50px;
+    display: inline-block
+}
+
+nav > ul {
+    list-style-type: none;
+    display: inline-block;
+}
+
+nav > ul > li {
+    display: inline;
+    line-height: 96px;
+    padding: 35px 50px;
+}
+
+nav > ul > li > a {
+    color: white;
+    text-decoration: none;
+    font-size: 22px;
+    font-family: 'Roboto', Verdana, serif;
+}
+
+.subheader {
+    display: block;
+    background: url("/img/sub.png") repeat-y 74px;
+    background-color: #2b3f48;
+    height: 16px;
+}
+
+.content {
+    padding: 20px 20px 60px 20px;
+    color: white;
+    font-size: 16px;
+    font-family: 'Roboto', Verdana, serif;
+}
+
+.frame {
+    padding: 0 0 16px 16px;
+    margin: 0 0 16px 0;
+}
+
+.frame ul {
+    padding-left: 25px;
+}
+
+.frame-blue {
+    background: url("/img/cnt_blue_top.png") no-repeat top left, url("/img/cnt_blue_bottom.png") no-repeat bottom right;
+}
+
+.frame-blue-content {
+    min-height: 16px;
+    background: url("/img/cnt_blue.png") repeat-y top right;
+    background-color: #19aeff;
+    box-shadow: -16px 16px 0 0 #005c94;
+    padding: 10px;
+}
+
+.frame-green {
+    background: url("/img/cnt_green_top.png") no-repeat top left, url("/img/cnt_green_bottom.png") no-repeat bottom right;
+}
+
+.frame-green-content {
+    min-height: 16px;
+    background: url("/img/cnt_green.png") repeat-y top right;
+    background-color: #ccff42;
+    box-shadow: -16px 16px 0 0 #009023;
+    padding: 10px;
+    color: black;
+}
+
+.frame-orange {
+    background: url("/img/cnt_orange_top.png") no-repeat top left, url("/img/cnt_orange_bottom.png") no-repeat bottom right;
+}
+
+.frame-orange-content {
+    min-height: 16px;
+    background: url("/img/cnt_orange.png") repeat-y top right;
+    background-color: #ff9900;
+    box-shadow: -16px 16px 0 0 #804d00;
+    padding: 10px;
+    color: black;
+}
+
+footer {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+    height: 50px;
+    line-height: 50px;
+    color: white;
+    background: url("/img/foot.png") repeat-y 50px;
+    background-color: #0e232e;
+    text-align: center;
+    font-size: 14;
+    font-family: 'Roboto', Verdana, serif;
+}
