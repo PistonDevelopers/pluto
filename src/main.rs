@@ -15,7 +15,7 @@ use router::Router;
 
 fn home(req: &mut Request) -> IronResult<Response> {
     let content_type = "text/html".parse::<Mime>().unwrap();
-    let mut f = File::open("public/index.html").unwrap();
+    let mut f = File::open("templates/index.html").unwrap();
     let mut s = String::new();
     match f.read_to_string(&mut s) {
         Ok(_) => Ok(Response::with((content_type, status::Ok, s))),
@@ -25,7 +25,7 @@ fn home(req: &mut Request) -> IronResult<Response> {
 
 fn rules(req: &mut Request) -> IronResult<Response> {
     let content_type = "text/html".parse::<Mime>().unwrap();
-    let mut f = File::open("public/rules.html").unwrap();
+    let mut f = File::open("templates/rules.html").unwrap();
     let mut s = String::new();
     match f.read_to_string(&mut s) {
         Ok(_) => Ok(Response::with((content_type, status::Ok, s))),
@@ -35,7 +35,7 @@ fn rules(req: &mut Request) -> IronResult<Response> {
 
 fn games(req: &mut Request) -> IronResult<Response> {
     let content_type = "text/html".parse::<Mime>().unwrap();
-    let mut f = File::open("public/games.html").unwrap();
+    let mut f = File::open("templates/games.html").unwrap();
     let mut s = String::new();
     match f.read_to_string(&mut s) {
         Ok(_) => Ok(Response::with((content_type, status::Ok, s))),
