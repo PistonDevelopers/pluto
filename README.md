@@ -1,4 +1,4 @@
-redox
+pluto
 =====
 
 Game competition server software for Rust gamedev community
