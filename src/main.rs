@@ -71,7 +71,7 @@ fn main() {
 
     let url = "localhost:3000";
     match Iron::new(chain).http(url) {
-        Ok(_) => println!("Redox running on http://{}", url),
-        Err(e) => println!("Redox failed to run. Error: {}", e)
+        Ok(_) => println!("Pluto running on http://{}", url),
+        Err(e) => println!("Pluto failed to run. Error: {}", e)
     };
 }
