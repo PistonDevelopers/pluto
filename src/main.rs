@@ -2,6 +2,7 @@ extern crate iron;
 extern crate staticfile;
 extern crate mount;
 extern crate router;
+extern crate logger;
 
 use std::io::prelude::*;
 use std::fs::File;
@@ -12,6 +13,7 @@ use iron::status;
 use staticfile::Static;
 use mount::Mount;
 use router::Router;
+use logger::Logger;
 
 fn home(req: &mut Request) -> IronResult<Response> {
     let content_type = "text/html".parse::<Mime>().unwrap();
@@ -56,8 +58,13 @@ fn main() {
         mount("/css", Static::new("public/css")).
         mount("/img", Static::new("public/img"));
 
+    let (logger_before, logger_after) = Logger::new(None);
+    let mut chain = Chain::new(mount);
+    chain.link_before(logger_before);
+    chain.link_after(logger_after);
+
     let url = "localhost:3000";
-    match Iron::new(mount).http(url) {
+    match Iron::new(chain).http(url) {
         Ok(_) => println!("Redox running on http://{}", url),
         Err(e) => println!("Redox failed to run. Error: {}", e)
     };
