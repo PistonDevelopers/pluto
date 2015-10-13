@@ -15,33 +15,39 @@ use mount::Mount;
 use router::Router;
 use logger::Logger;
 
-fn home(req: &mut Request) -> IronResult<Response> {
-    let content_type = "text/html".parse::<Mime>().unwrap();
-    let mut f = File::open("templates/index.html").unwrap();
+fn load_html_from_file(file: &str) -> Option<String> {
+    let mut f = File::open("templates/".to_string() + file).unwrap();
     let mut s = String::new();
     match f.read_to_string(&mut s) {
-        Ok(_) => Ok(Response::with((content_type, status::Ok, s))),
-        Err(_) => Ok(Response::with(status::NotFound))
+        Ok(_) => Some(s),
+        Err(_) => None
     }
 }
 
-fn rules(req: &mut Request) -> IronResult<Response> {
+fn home(_: &mut Request) -> IronResult<Response> {
     let content_type = "text/html".parse::<Mime>().unwrap();
-    let mut f = File::open("templates/rules.html").unwrap();
-    let mut s = String::new();
-    match f.read_to_string(&mut s) {
-        Ok(_) => Ok(Response::with((content_type, status::Ok, s))),
-        Err(_) => Ok(Response::with(status::NotFound))
+    let text_html = load_html_from_file("index.html");
+    match text_html {
+        Some(s) => Ok(Response::with((content_type, status::Ok, s))),
+        None => Ok(Response::with(status::NotFound))
     }
 }
 
-fn games(req: &mut Request) -> IronResult<Response> {
+fn rules(_: &mut Request) -> IronResult<Response> {
     let content_type = "text/html".parse::<Mime>().unwrap();
-    let mut f = File::open("templates/games.html").unwrap();
-    let mut s = String::new();
-    match f.read_to_string(&mut s) {
-        Ok(_) => Ok(Response::with((content_type, status::Ok, s))),
-        Err(_) => Ok(Response::with(status::NotFound))
+    let text_html = load_html_from_file("rules.html");
+    match text_html {
+        Some(s) => Ok(Response::with((content_type, status::Ok, s))),
+        None => Ok(Response::with(status::NotFound))
+    }
+}
+
+fn games(_: &mut Request) -> IronResult<Response> {
+    let content_type = "text/html".parse::<Mime>().unwrap();
+    let text_html = load_html_from_file("games.html");
+    match text_html {
+        Some(s) => Ok(Response::with((content_type, status::Ok, s))),
+        None => Ok(Response::with(status::NotFound))
     }
 }
 
