@@ -1,10 +1,15 @@
 [package]
 
-name = "redox"
+name = "pluto"
 version = "0.0.1"
 authors = [
     "bvssvni <bvssvni@gmail.com>"
 ]
+keywords = ["gamedev", "competition", "piston"]
+description = "Server software for Pluto, the Rust gamedev competition"
+license = "MIT"
+repository = "https://github.com/PistonDevelopers/redox.git"
+homepage = "https://github.com/PistonDevelopers/redox"
 
 [[bin]]
 
