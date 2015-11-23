@@ -19,9 +19,9 @@ path = "src/main.rs"
 
 [dependencies]
 iron = "0.2.2"
-hyper = "*" # anything that goes with Iron
-postgres = "0.9.6"
-staticfile = "*" # anything that goes with Iron
-mount = "*" # anything that goes with Iron
-router = "*"
-logger = "*"
+hyper = "0.6.16"
+postgres = "0.10.1"
+staticfile = "0.0.6"
+mount = "0.0.9"
+router = "0.0.15"
+logger = "0.0.3"
