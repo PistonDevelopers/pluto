@@ -24,3 +24,5 @@ staticfile = "0.1.0"
 mount = "0.0.9"
 router = "0.1.0"
 logger = { git = "https://github.com/iron/logger.git" }
+handlebars-iron = "0.10.2"
+rustc-serialize = "0.3.16"

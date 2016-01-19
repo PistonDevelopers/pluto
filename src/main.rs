@@ -3,9 +3,12 @@ extern crate staticfile;
 extern crate mount;
 extern crate router;
 extern crate logger;
+extern crate handlebars_iron as hbs;
+extern crate rustc_serialize;
 
 use std::io::prelude::*;
 use std::fs::File;
+use std::collections::BTreeMap;
 
 use iron::prelude::*;
 use iron::mime::Mime;
@@ -14,6 +17,8 @@ use staticfile::Static;
 use mount::Mount;
 use router::Router;
 use logger::Logger;
+use hbs::{Template, HandlebarsEngine, DirectorySource};
+use rustc_serialize::json::{ToJson, Json};
 
 fn load_html_from_file(file: &str) -> Option<String> {
     let mut f = File::open("templates/".to_string() + file).unwrap();
@@ -51,12 +56,46 @@ fn games(_: &mut Request) -> IronResult<Response> {
     }
 }
 
+struct User {
+    name: String,
+    age: u16,
+}
+
+impl ToJson for User {
+    fn to_json(&self) -> Json {
+        let mut map: BTreeMap<String, Json> = BTreeMap::new();
+
+        map.insert("name".to_string(), self.name.to_json());
+        map.insert("age".to_string(), self.age.to_json());
+        map.to_json()
+    }
+}
+
+fn test(_: &mut Request) -> IronResult<Response> {
+    let mut resp = Response::new();
+
+    let data = User {
+        name: "Adam".to_string(),
+        age: 32u16,
+    };
+    resp.set_mut(Template::new("test", data)).set_mut(status::Ok);
+     Ok(resp)
+}
+
 fn main() {
+    let mut bars = HandlebarsEngine::new2();
+    bars.add(Box::new(DirectorySource::new("./templates/", ".hbs")));
+
+    if let Err(r) = bars.reload() {
+        panic!("{:?}", r);
+    }
+
     let mut router = Router::new();
     router.
         get("/", home).
         get("/rules", rules).
-        get("/games", games);
+        get("/games", games).
+        get("/test", test);
 
     let mut mount = Mount::new();
     mount.
@@ -68,6 +107,7 @@ fn main() {
     let mut chain = Chain::new(mount);
     chain.link_before(logger_before);
     chain.link_after(logger_after);
+    chain.link_after(bars);
 
     let url = "localhost:3000";
     match Iron::new(chain).http(url) {
