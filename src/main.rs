@@ -6,12 +6,8 @@ extern crate logger;
 extern crate handlebars_iron as hbs;
 extern crate rustc_serialize;
 
-use std::io::prelude::*;
-use std::fs::File;
 use std::collections::BTreeMap;
-
 use iron::prelude::*;
-use iron::mime::Mime;
 use iron::status;
 use staticfile::Static;
 use mount::Mount;
