@@ -18,10 +18,9 @@ name = "redox"
 path = "src/main.rs"
 
 [dependencies]
-iron = "0.2.2"
-hyper = "0.6.16"
-postgres = "0.10.1"
-staticfile = "0.0.6"
+iron = "0.2.6"
+postgres = "0.11.0"
+staticfile = "0.1.0"
 mount = "0.0.9"
-router = "0.0.15"
-logger = "0.0.3"
+router = "0.1.0"
+logger = { git = "https://github.com/iron/logger.git" }
