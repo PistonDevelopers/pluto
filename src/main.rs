@@ -20,40 +20,22 @@ use logger::Logger;
 use hbs::{Template, HandlebarsEngine, DirectorySource};
 use rustc_serialize::json::{ToJson, Json};
 
-fn load_html_from_file(file: &str) -> Option<String> {
-    let mut f = File::open("templates/".to_string() + file).unwrap();
-    let mut s = String::new();
-    match f.read_to_string(&mut s) {
-        Ok(_) => Some(s),
-        Err(_) => None
-    }
-}
-
-fn home(_: &mut Request) -> IronResult<Response> {
-    let content_type = "text/html".parse::<Mime>().unwrap();
-    let text_html = load_html_from_file("index.html");
-    match text_html {
-        Some(s) => Ok(Response::with((content_type, status::Ok, s))),
-        None => Ok(Response::with(status::NotFound))
-    }
+fn index(_: &mut Request) -> IronResult<Response> {
+    let mut resp = Response::new();
+    resp.set_mut(Template::new("index", String::new())).set_mut(status::Ok);
+    Ok(resp)
 }
 
 fn rules(_: &mut Request) -> IronResult<Response> {
-    let content_type = "text/html".parse::<Mime>().unwrap();
-    let text_html = load_html_from_file("rules.html");
-    match text_html {
-        Some(s) => Ok(Response::with((content_type, status::Ok, s))),
-        None => Ok(Response::with(status::NotFound))
-    }
+    let mut resp = Response::new();
+    resp.set_mut(Template::new("rules", String::new())).set_mut(status::Ok);
+    Ok(resp)
 }
 
 fn games(_: &mut Request) -> IronResult<Response> {
-    let content_type = "text/html".parse::<Mime>().unwrap();
-    let text_html = load_html_from_file("games.html");
-    match text_html {
-        Some(s) => Ok(Response::with((content_type, status::Ok, s))),
-        None => Ok(Response::with(status::NotFound))
-    }
+    let mut resp = Response::new();
+    resp.set_mut(Template::new("games", String::new())).set_mut(status::Ok);
+    Ok(resp)
 }
 
 struct User {
@@ -72,14 +54,14 @@ impl ToJson for User {
 }
 
 fn test(_: &mut Request) -> IronResult<Response> {
-    let mut resp = Response::new();
-
     let data = User {
         name: "Adam".to_string(),
         age: 32u16,
     };
+
+    let mut resp = Response::new();
     resp.set_mut(Template::new("test", data)).set_mut(status::Ok);
-     Ok(resp)
+    Ok(resp)
 }
 
 fn main() {
@@ -92,7 +74,7 @@ fn main() {
 
     let mut router = Router::new();
     router.
-        get("/", home).
+        get("/", index).
         get("/rules", rules).
         get("/games", games).
         get("/test", test);
