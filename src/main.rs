@@ -61,7 +61,7 @@ fn test(_: &mut Request) -> IronResult<Response> {
 }
 
 fn main() {
-    let mut bars = HandlebarsEngine::new2();
+    let mut bars = HandlebarsEngine::new();
     bars.add(Box::new(DirectorySource::new("./templates/", ".hbs")));
 
     if let Err(r) = bars.reload() {
